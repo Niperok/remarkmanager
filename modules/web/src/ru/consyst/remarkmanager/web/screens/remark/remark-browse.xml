@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://remarkBrowse.caption"
+        focusComponent="remarksTable"
+        messagesPack="ru.consyst.remarkmanager.web.screens.remark">
+    <data readOnly="true">
+        <collection id="remarksDc"
+                    class="ru.consyst.remarkmanager.entity.Remark"
+                    view="remark-view">
+            <loader id="remarksDl">
+                <query>
+                    <![CDATA[select e from remarkmanager_Remark e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="remarksTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="remarksTable"
+                dataLoader="remarksDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="remarksTable"
+                    width="100%"
+                    dataContainer="remarksDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="product"/>
+                <column id="remarkType"/>
+                <column id="description"/>
+                <column id="initiator"/>
+                <column id="decision"/>
+                <column id="decisionAutor"/>
+                <column id="remarkDate"/>
+                <column id="decisionDate"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="remarksTable.create"/>
+                <button id="editBtn" action="remarksTable.edit"/>
+                <button id="removeBtn" action="remarksTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

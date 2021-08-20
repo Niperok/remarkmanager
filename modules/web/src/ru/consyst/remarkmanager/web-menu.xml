@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-remarkmanager" insertBefore="administration" caption="mainMsg://menu_config.application-remarkmanager">
+        <item screen="remarkmanager_Remark.browse" caption="mainMsg://menu_config.remarkmanager_Remark.browse"/>
+    </menu>
+</menu-config>
