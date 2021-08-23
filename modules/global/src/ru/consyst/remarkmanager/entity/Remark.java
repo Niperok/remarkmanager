@@ -112,4 +112,5 @@ public class Remark extends StandardEntity {
     public void setProduct(String product) {
         this.product = product;
     }
+
 }
